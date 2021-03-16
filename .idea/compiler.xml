@@ -7,9 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="simpleim-server" />
-        <module name="simpleim-client" />
         <module name="simpleIM" />
+        <module name="simpleim-client" />
+        <module name="simpleim-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
