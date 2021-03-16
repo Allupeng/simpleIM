@@ -1,0 +1,4 @@
+# simpleIM
+simpleIM based on netty
+这是一个个人学习的IM应用
+现在暂时只实现Client发送消息给Server.Server接受消息并且发送一个已收到的消息给Client
