@@ -4,6 +4,7 @@ import com.oneorange.simpleimclient.config.SimpleIMClientConfig;
 import com.oneorange.simpleimclient.type.FunctionType;
 import com.oneorange.simpleimclient.util.ByteBufUtil;
 import com.oneorange.simpleimclient.util.DateUtil;
+import com.oneorange.simpleimclient.util.MenuUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -54,13 +55,14 @@ public class Client {
          connectFuture.addListener((ChannelFuture future)->{
              if (future.isSuccess()){
                  log.info("client connect success!");
+                 MenuUtil.drawMenu();
              }else {
                  log.info("client connect failed!");
              }
          });
 
          try {
-             connectFuture.sync();
+             connectFuture.sync();//监听
              Channel channel = connectFuture.channel();
              ClientInput(channel);
          } catch (InterruptedException e) {
@@ -72,9 +74,6 @@ public class Client {
      }
 
      private void ClientInput(Channel channel){
-         log.info("menu:    [................This is a Simple Client .................]");
-         log.info("function:[................[0]SimpleChat(Server Test)...............]");
-         log.info("function:[................[1]Login.................................]");
 
          Scanner scanner = new Scanner(System.in);
          while (scanner.hasNext()){
@@ -86,4 +85,6 @@ public class Client {
          }
          ByteBufUtil.release(buffer);
      }
+
+
 }
